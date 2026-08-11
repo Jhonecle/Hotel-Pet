@@ -15,4 +15,53 @@
             <a href="editar-perfil.html">Meu Perfil</a>
         </nav>
     </header>
+     <main>
+        <h2>Pets</h2>
+
+        <p><a href="novo-pet.html">Cadastrar Novo Pet</a></p>
+
+        <h3>Pesquisar Pet</h3>
+
+        <form>
+            <label for="pesquisa">Nome ou raça:</label>
+            <input type="text" id="pesquisa" name="pesquisa">
+            <button type="submit">Pesquisar</button>
+        </form>
+
+        <h3>Pets cadastrados</h3>
+
+        <table border="1">
+            <tr>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Raça</th>
+                <th>Tamanho</th>
+                <th>Proprietário</th>
+                <th>Ações</th>
+            </tr>
+            <tr>
+                <td>Berg</td>
+                <td>Cachorro</td>
+                <td>Vira lata</td>
+                <td>Grande</td>
+                <td>Geovane Oliveira</td>
+                <td>
+                    <a href="ver-pet.html">Visualizar</a> |
+                    <a href="editar-pet.html">Editar</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Lara</td>
+                <td>Gata</td>
+                <td>Siamês</td>
+                <td>Pequeno</td>
+                <td>Maria das Graças</td>
+                <td>
+                    <a href="ver-pet.html">Visualizar</a> |
+                    <a href="editar-pet.html">Editar</a>
+                </td>
+            </tr>
+        </table>
+    </main>
 </body>
+</html>
