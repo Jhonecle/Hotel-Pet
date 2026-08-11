@@ -4,3 +4,59 @@
     <meta charset="UTF-8">
     <title>Hotel Pet - Editar Reserva</title>
 </head>
+<body>
+    <header>
+        <h1>Hotel Pet</h1>
+        <nav>
+            <a href="reservas.html">Reservas</a> |
+            <a href="pets.html">Pets</a> |
+            <a href="usuarios.html">Usuários</a> |
+            <a href="configuracoes.html">Configurações</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Editar Reserva</h2>
+
+        <form>
+            <label for="pet">Pet:</label><br>
+            <select id="pet" name="pet">
+                <option>Berg</option>
+                <option>Lara</option>
+                <option>Lion</option>
+            </select><br><br>
+
+            <label for="inicio">Data de início:</label><br>
+            <input type="date" id="inicio" name="inicio"><br><br>
+
+            <label for="fim">Data de término:</label><br>
+            <input type="date" id="fim" name="fim"><br><br>
+
+            <label for="notas">Informações sobre o Pet:</label><br>
+            <textarea id="notas" name="notas" rows="5" cols="40"></textarea><br><br>
+
+            <label for="anotacoes">Anotações da estadia:</label><br>
+            <textarea id="anotacoes" name="anotacoes" rows="5" cols="40"></textarea><br><br>
+
+            <label for="status">Status:</label><br>
+            <select id="status" name="status">
+                <option>Em andamento</option>
+                <option>Finalizada</option>
+            </select><br><br>
+
+            <label for="imagem">Adicionar imagem:</label><br>
+            <input type="file" id="imagem" name="imagem"><br><br>
+
+            <label for="recibo">Recibo:</label><br>
+            <input type="file" id="recibo" name="recibo"><br><br>
+
+            <p><strong>Total das diárias: R$ 100,00</strong></p>
+
+            <button type="submit">Salvar</button>
+            <button type="reset">Limpar</button>
+        </form>
+
+        <p><a href="reservas.html">Voltar</a></p>
+    </main>
+
+</body>
+</html>
