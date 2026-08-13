@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Pet - Reservas</title>
+</head>
+<body>
+
+    <h1>Hotel Pet</h1>
+
+    <p>
+        <a href="reservas.html">Reservas</a> |
+        <a href="pets.html">Pets</a> |
+        <a href="usuarios.html">Usuários</a> |
+        <a href="configuracoes.html">Configurações</a> |
+        <a href="editar-perfil.html">Meu Perfil</a> |
+        <a href="../index.html">Sair</a>
+    </p>
+
+    <h2>Reservas</h2>
+
+    <p>
+        <a href="fazer-reserva.html">Nova Reserva</a>
+    </p>
+
+    <h3>Pesquisar Reserva</h3>
+
+    <form>
+        <label for="pesquisa">Pesquisar:</label>
+        <input type="text" id="pesquisa" name="pesquisa">
+        <input type="submit" value="Pesquisar">
+    </form>
+
+    <h3>Reservas cadastradas</h3>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Pet</th>
+            <th>Proprietário</th>
+            <th>Período</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+
+        <tr>
+            <td>001</td>
+            <td>Max</td>
+            <td>João da Silva</td>
+            <td>10/08/2026 a 15/08/2026</td>
+            <td>Em andamento</td>
+            <td>
+                <a href="ver-reserva.html">Visualizar</a> |
+                <a href="editar-reserva.html">Editar</a>
+            </td>
+        </tr>
+
+        <tr>
+            <td>002</td>
+            <td>Mel</td>
+            <td>Maria Santos</td>
+            <td>01/08/2026 a 05/08/2026</td>
+            <td>Finalizada</td>
+            <td>
+                <a href="ver-reserva.html">Visualizar</a> |
+                <a href="editar-reserva.html">Editar</a>
+            </td>
+        </tr>
+    </table>
+
+    <p>Hotel Pet - Visão do Gerente</p>
+
+</body>
+</html>
