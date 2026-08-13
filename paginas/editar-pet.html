@@ -5,48 +5,47 @@
     <title>Hotel Pet - Editar Pet</title>
 </head>
 <body>
-    <header>
-        <h1>Hotel Pet</h1>
-        <nav>
-            <a href="reservas.html">Reservas</a> |
-            <a href="pets.html">Pets</a> |
-            <a href="usuarios.html">Usuários</a> |
-            <a href="configuracoes.html">Configurações</a>
-        </nav>
-    </header>
 
-    <main>
-        <h2>Editar Pet</h2>
+    <h1>Hotel Pet</h1>
 
-        <form>
-            <label for="nome">Nome:</label><br>
-            <input type="text" id="nome" name="nome" value="Berg"><br><br>
+    <p>
+        <a href="reservas.html">Reservas</a> |
+        <a href="pets.html">Pets</a> |
+        <a href="usuarios.html">Usuários</a> |
+        <a href="configuracoes.html">Configurações</a>
+    </p>
 
-            <label for="tipo">Tipo:</label><br>
-            <select id="tipo" name="tipo">
-                <option selected>Cachorro</option>
-                <option>Gato</option>
-                <option>Outro</option>
-            </select><br><br>
-        </form>
+    <h2>Editar Pet</h2>
+
+    <form>
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome" value="Berg"><br><br>
+
+        <label for="tipo">Tipo:</label><br>
+        <select id="tipo" name="tipo">
+            <option>Cachorro</option>
+            <option>Gato</option>
+            <option>Outro</option>
+        </select><br><br>
+
         <label for="raca">Raça:</label><br>
-            <input type="text" id="raca" name="raca" value="Vira lata"><br><br>
+        <input type="text" id="raca" name="raca" value="Vira lata"><br><br>
 
-            <label for="tamanho">Tamanho:</label><br>
-            <select id="tamanho" name="tamanho">
-                <option>Pequeno</option>
-                <option>Médio</option>
-                <option selected>Grande</option>
-            </select><br><br>
+        <label for="tamanho">Tamanho:</label><br>
+        <select id="tamanho" name="tamanho">
+            <option>Pequeno</option>
+            <option>Médio</option>
+            <option>Grande</option>
+        </select><br><br>
 
-            <label for="foto">Alterar foto:</label><br>
-            <input type="file" id="foto" name="foto"><br><br>
+        <label for="foto">Alterar foto:</label><br>
+        <input type="file" id="foto" name="foto"><br><br>
 
-            <button type="submit">Salvar</button>
-            <button type="reset">Limpar</button>
-        </form>
+        <input type="submit" value="Salvar">
+        <input type="reset" value="Limpar">
+    </form>
 
-        <p><a href="ver-pet.html">Voltar</a></p>
-    </main>
+    <p><a href="ver-pet.html">Voltar</a></p>
+
 </body>
 </html>

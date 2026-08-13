@@ -5,59 +5,62 @@
     <title>Hotel Pet - Usuários</title>
 </head>
 <body>
-    <header>
-        <h1>Hotel Pet</h1>
-        <nav>
-            <a href="reservas.html">Reservas</a> |
-            <a href="pets.html">Pets</a> |
-            <a href="usuarios.html">Usuários</a> |
-            <a href="configuracoes.html">Configurações</a> |
-            <a href="editar-perfil.html">Meu Perfil</a>
-        </nav>
-    </header>
-    <main>
-        <h2>Usuários</h2>
 
-        <p><a href="novo-usuario.html">Cadastrar Usuário</a></p>
+    <h1>Hotel Pet</h1>
 
-        <h3>Pesquisar Usuário</h3>
+    <p>
+        <a href="reservas.html">Reservas</a> |
+        <a href="pets.html">Pets</a> |
+        <a href="usuarios.html">Usuários</a> |
+        <a href="configuracoes.html">Configurações</a> |
+        <a href="editar-perfil.html">Meu Perfil</a>
+    </p>
 
-        <form>
-            <label for="pesquisa">Nome ou e-mail:</label>
-            <input type="text" id="pesquisa" name="pesquisa">
-            <button type="submit">Pesquisar</button>
-        </form>
-        <h3>Usuários cadastrados</h3>
+    <h2>Usuários</h2>
 
-        <table border="1">
-            <tr>
-                <th>Nome</th>
-                <th>E-mail</th>
-                <th>Função</th>
-                <th>Status</th>
-                <th>Ações</th>
-            </tr>
-            <tr>
-                <td>João da Silva</td>
-                <td>joao@email.com</td>
-                <td>Cliente</td>
-                <td>Ativo</td>
-                <td>
-                    <a href="ver-usuario.html">Visualizar</a> |
-                    <a href="editar-usuario.html">Editar</a>
-                </td>
-            </tr>
-            <tr>
-                <td>Ana Oliveira</td>
-                <td>ana@hotelpet.com</td>
-                <td>Funcionário</td>
-                <td>Ativo</td>
-                <td>
-                    <a href="ver-usuario.html">Visualizar</a> |
-                    <a href="editar-usuario.html">Editar</a>
-                </td>
-            </tr>
-        </table>
-    </main>
+    <p><a href="novo-usuario.html">Cadastrar Usuário</a></p>
+
+    <h3>Pesquisar Usuário</h3>
+
+    <form>
+        <label for="pesquisa">Nome ou e-mail:</label>
+        <input type="text" id="pesquisa" name="pesquisa">
+        <input type="submit" value="Pesquisar">
+    </form>
+
+    <h3>Usuários cadastrados</h3>
+
+    <table border="1">
+        <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Função</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+        <tr>
+            <td>João da Silva</td>
+            <td>joao@email.com</td>
+            <td>Cliente</td>
+            <td>Ativo</td>
+            <td>
+                <a href="ver-usuario.html">Visualizar</a> |
+                <a href="editar-usuario.html">Editar</a> |
+                <a href="usuarios.html">Deletar</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Ana Oliveira</td>
+            <td>ana@hotelpet.com</td>
+            <td>Funcionário</td>
+            <td>Ativo</td>
+            <td>
+                <a href="ver-usuario.html">Visualizar</a> |
+                <a href="editar-usuario.html">Editar</a> |
+                <a href="usuarios.html">Deletar</a>
+            </td>
+        </tr>
+    </table>
+
 </body>
 </html>
