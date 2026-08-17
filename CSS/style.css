@@ -55,3 +55,34 @@ form {
     margin-top: 10px;
     margin-bottom: 20px;
 }
+
+label {
+    color: #333333;
+    font-weight: bold;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border: 2px solid #5b7c99;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    background-color: #5b7c99;
+    color: #ffffff;
+    border: 1px solid #5b7c99;
+    border-radius: 5px;
+    padding: 3px 15px;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+a {
+    color: #5b7c99;
+    text-decoration: underline;
+}
+
+p {
+    line-height: 1.5;
+}
