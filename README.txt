@@ -20,6 +20,22 @@ A estrutura contém 16 páginas HTML:
 15. editar-usuario.html
 16. configuracoes.html
 
+ESTILIZAÇÃO CSS
+
+Estrutura:
+index.html
+paginas/
+css/style.css
+
+O CSS usa.
+- seletores e classes;
+- cores;
+- formatação de textos;
+- boxes (margin, padding, border, border-radius, width);
+- tabelas;
+- formulários;
+- pseudo-classes utilizadas nas aulas.
+
 Observação:
 - O sistema terá as três visões Cliente, Funcionário e Gerente.
 - Porem, o que iremos destacar em algumas telas será a visão do Gerente.
