@@ -86,3 +86,25 @@ a {
 p {
     line-height: 1.5;
 }
+
+table {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #999999;
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+th,
+td {
+    border: 3px solid #999999;
+
+}
+
+th {
+    background-color: #5b7c99;
+    color: #ffffff;
+    text-align: center;
+}
