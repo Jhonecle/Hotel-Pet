@@ -108,3 +108,9 @@ th {
     color: #ffffff;
     text-align: center;
 }
+
+
+.menu a.pagina-atual {
+    font-weight: bold;
+    text-decoration: underline;
+}
