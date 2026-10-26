@@ -1,77 +1,93 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <title>Hotel Pet - Pets</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../CSS/style.css">
 </head>
 <body>
 
     <h1>Hotel Pet</h1>
 
-
-
-<p class="menu">
-    <a href="reservas.html" data-navegar>Reservas</a> |
-    <a href="pets.html" data-navegar>Pets</a> |
-    <a href="usuarios.html" data-navegar>Usuários</a> |
-    <a href="configuracoes.html" data-navegar>Configurações</a> |
-    <a href="editar-perfil.html" data-navegar>Meu Perfil</a> |
-    <a href="../index.html">Sair</a>
-</p>
-
-
+    <p class="menu">
+        <a href="reservas.html" data-navegar>Reservas</a> |
+        <a href="pets.html" data-navegar>Pets</a> |
+        <a href="usuarios.html" data-navegar>Usuários</a> |
+        <a href="configuracoes.html" data-navegar>Configurações</a> |
+        <a href="editar-perfil.html" data-navegar>Meu Perfil</a> |
+        <a href="../index.html">Sair</a>
+    </p>
 
     <h2>Pets</h2>
 
-    <p class="menu"><a href="novo-pet.html">Cadastrar Novo Pet</a></p>
+    <p class="menu">
+        <a href="novo-pet.html">Cadastrar Novo Pet</a>
+    </p>
 
     <h3>Pesquisar Pet</h3>
 
-    <form>
-        <label for="pesquisa">Nome ou raça:</label>
-        <input type="text" id="pesquisa" name="pesquisa">
+    <!-- Formulário de busca -->
+    <form id="form-busca-pets">
+        <label for="pesquisa-pets">Nome ou raça:</label>
+
+        <input
+            type="text"
+            id="pesquisa-pets"
+            name="pesquisa"
+            placeholder="Digite o nome ou a raça"
+        >
+
         <input type="submit" value="Pesquisar">
+        <input type="reset" value="Limpar">
     </form>
+
+    <!-- Mensagem dos resultados -->
+    <p id="mensagem-pets" aria-live="polite"></p>
 
     <h3>Pets cadastrados</h3>
 
-    <table border="1">
-        <tr>
-            <th>Nome</th>
-            <th>Tipo</th>
-            <th>Raça</th>
-            <th>Tamanho</th>
-            <th>Proprietário</th>
-            <th>Ações</th>
-        </tr>
-        <tr>
-            <td>Berg</td>
-            <td>Cachorro</td>
-            <td>Vira lata</td>
-            <td>Grande</td>
-            <td>Geovane Oliveira</td>
-            <td>
-                <a href="ver-pet.html">Visualizar</a> |
-                <a href="editar-pet.html">Editar</a>
-            </td>
-        </tr>
-        <tr>
-            <td>Lara</td>
-            <td>Gata</td>
-            <td>Siamês</td>
-            <td>Pequeno</td>
-            <td>Maria das Graças</td>
-            <td>
-                <a href="ver-pet.html">Visualizar</a> |
-                <a href="editar-pet.html">Editar</a>
-            </td>
-        </tr>
+    <table id="tabela-pets" border="1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Raça</th>
+                <th>Tamanho</th>
+                <th>Proprietário</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Berg</td>
+                <td>Cachorro</td>
+                <td>Vira lata</td>
+                <td>Grande</td>
+                <td>Geovane Oliveira</td>
+                <td>
+                    <a href="ver-pet.html">Visualizar</a> |
+                    <a href="editar-pet.html">Editar</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Lara</td>
+                <td>Gata</td>
+                <td>Siamês</td>
+                <td>Pequeno</td>
+                <td>Maria das Graças</td>
+                <td>
+                    <a href="ver-pet.html">Visualizar</a> |
+                    <a href="editar-pet.html">Editar</a>
+                </td>
+            </tr>
+        </tbody>
     </table>
-    
-<script src="../arquivo.js/navegacao.js"></script>
 
-
+    <script src="../arquivo.js/navegacao.js"></script>
+    <script src="../arquivo.js/buscas.js"></script>
 
 </body>
 </html>
