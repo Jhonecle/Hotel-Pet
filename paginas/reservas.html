@@ -1,24 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <title>Hotel Pet - Reservas</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../CSS/style.css">
 </head>
 <body>
 
     <h1>Hotel Pet</h1>
 
-   
-<p class="menu">
-    <a href="reservas.html" data-navegar>Reservas</a> |
-    <a href="pets.html" data-navegar>Pets</a> |
-    <a href="usuarios.html" data-navegar>Usuários</a> |
-    <a href="configuracoes.html" data-navegar>Configurações</a> |
-    <a href="editar-perfil.html" data-navegar>Meu Perfil</a> |
-    <a href="../index.html">Sair</a>
-</p>
-
+    <p class="menu">
+        <a href="reservas.html" data-navegar>Reservas</a> |
+        <a href="pets.html" data-navegar>Pets</a> |
+        <a href="usuarios.html" data-navegar>Usuários</a> |
+        <a href="configuracoes.html" data-navegar>Configurações</a> |
+        <a href="editar-perfil.html" data-navegar>Meu Perfil</a> |
+        <a href="../index.html">Sair</a>
+    </p>
 
     <h2 id="titulo-pagina">Reservas</h2>
 
@@ -28,50 +27,69 @@
 
     <h3>Pesquisar Reserva</h3>
 
-    <form>
-        <label for="pesquisa">Pesquisar:</label>
-        <input type="text" id="pesquisa" name="pesquisa">
+    <!-- Formulário de pesquisa -->
+    <form id="form-busca-reservas">
+        <label for="pesquisa-reservas">
+            ID, pet, proprietário ou status:
+        </label>
+
+        <input
+            type="text"
+            id="pesquisa-reservas"
+            name="pesquisa"
+            placeholder="Digite sua pesquisa"
+        >
+
         <input type="submit" value="Pesquisar">
+        <input type="reset" value="Limpar">
     </form>
+
+    <!-- Mensagem dos resultados -->
+    <p id="mensagem-reservas" aria-live="polite"></p>
 
     <h3>Reservas cadastradas</h3>
 
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Pet</th>
-            <th>Proprietário</th>
-            <th>Período</th>
-            <th>Status</th>
-            <th>Ações</th>
-        </tr>
+    <table id="tabela-reservas" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Pet</th>
+                <th>Proprietário</th>
+                <th>Período</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
 
-        <tr>
-            <td>001</td>
-            <td>Max</td>
-            <td>João da Silva</td>
-            <td>10/08/2026 a 15/08/2026</td>
-            <td>Em andamento</td>
-            <td>
-                <a href="ver-reserva.html">Visualizar</a> |
-                <a href="editar-reserva.html">Editar</a>
-            </td>
-        </tr>
+        <tbody>
+            <tr>
+                <td>001</td>
+                <td>Max</td>
+                <td>João da Silva</td>
+                <td>10/08/2026 a 15/08/2026</td>
+                <td>Em andamento</td>
+                <td>
+                    <a href="ver-reserva.html">Visualizar</a> |
+                    <a href="editar-reserva.html">Editar</a>
+                </td>
+            </tr>
 
-        <tr>
-            <td>002</td>
-            <td>Mel</td>
-            <td>Maria Santos</td>
-            <td>01/08/2026 a 05/08/2026</td>
-            <td>Finalizada</td>
-            <td>
-                <a href="ver-reserva.html">Visualizar</a> |
-                <a href="editar-reserva.html">Editar</a>
-            </td>
-        </tr>
+            <tr>
+                <td>002</td>
+                <td>Mel</td>
+                <td>Maria Santos</td>
+                <td>01/08/2026 a 05/08/2026</td>
+                <td>Finalizada</td>
+                <td>
+                    <a href="ver-reserva.html">Visualizar</a> |
+                    <a href="editar-reserva.html">Editar</a>
+                </td>
+            </tr>
+        </tbody>
     </table>
-    
-<script src="../arquivo.js/navegacao.js"></script>
+
+    <script src="../arquivo.js/navegacao.js"></script>
+    <script src="../arquivo.js/buscas.js"></script>
 
 </body>
 </html>
