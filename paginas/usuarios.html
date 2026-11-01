@@ -23,11 +23,23 @@
 
     <h3>Pesquisar Usuário</h3>
 
-    <form>
-        <label for="pesquisa">Nome ou e-mail:</label>
-        <input type="text" id="pesquisa" name="pesquisa">
-        <input type="submit" value="Pesquisar">
-    </form>
+<form id="form-busca-usuarios">
+
+    <label for="pesquisa-usuarios">Nome ou e-mail:</label>
+
+    <input
+        type="text"
+        id="pesquisa-usuarios"
+        name="pesquisa"
+        placeholder="Digite o nome ou e-mail"
+    >
+
+    <input type="submit" value="Pesquisar">
+    <input type="reset" value="Limpar">
+
+</form>
+
+<p id="mensagem-usuarios" aria-live="polite"></p>
 
     <h3>Usuários cadastrados</h3>
 
