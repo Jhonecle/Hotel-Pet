@@ -46,6 +46,7 @@ if (formularioPet) {
 }
 
 
+
 // Exibe os pets salvos na tabela.
 const tabelaPets = document.querySelector("#tabela-pets tbody");
 
@@ -72,4 +73,32 @@ if (tabelaPets) {
 
         tabelaPets.appendChild(linha);
     });
+}
+
+
+// Verificar se estamos na página de editar pet
+if (document.getElementById("form-editar-pet")) {
+
+    // Recuperar o índice do pet pela URL
+    const parametros = new URLSearchParams(window.location.search);
+    const indice = parametros.get("indice");
+
+    // Recuperar os pets armazenados
+    let pets = JSON.parse(localStorage.getItem("pets")) || [];
+
+    // Buscar o pet selecionado
+    let pet = pets[indice];
+
+    // Verificar se o pet existe
+    if (pet) {
+
+        // Preencher os campos do formulário
+        document.getElementById("nome").value = pet.nome;
+        document.getElementById("tipo").value = pet.tipo;
+        document.getElementById("raca").value = pet.raca;
+        document.getElementById("tamanho").value = pet.tamanho;
+
+    } else {
+        alert("Pet não encontrado!");
+    }
 }

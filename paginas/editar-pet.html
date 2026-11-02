@@ -18,22 +18,22 @@
 
     <h2>Editar Pet</h2>
 
-    <form>
+    <form id="form-editar-pet">
         <label for="nome">Nome:</label><br>
-        <input type="text" id="nome" name="nome" value="Berg"><br><br>
+        <input type="text" id="nome" name="nome" required><br><br>
 
         <label for="tipo">Tipo:</label><br>
-        <select id="tipo" name="tipo">
+        <select id="tipo" name="tipo"required>
             <option>Cachorro</option>
             <option>Gato</option>
             <option>Outro</option>
         </select><br><br>
 
         <label for="raca">Raça:</label><br>
-        <input type="text" id="raca" name="raca" value="Vira lata"><br><br>
+        <input type="text" id="raca" name="raca" required><br><br>
 
         <label for="tamanho">Tamanho:</label><br>
-        <select id="tamanho" name="tamanho">
+        <select id="tamanho" name="tamanho" required>
             <option>Pequeno</option>
             <option>Médio</option>
             <option>Grande</option>
@@ -47,6 +47,7 @@
     </form>
 
     <p class="menu"><a href="ver-pet.html">Voltar</a></p>
+    <script src="../arquivo.js/dados.js"></script>
 
 </body>
 </html>
