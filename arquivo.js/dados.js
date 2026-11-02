@@ -3,48 +3,75 @@
     Cadastro e exibição de Pets
 */
 
-// Verifica se estamos na página de cadastro.
-const formularioPet = document.querySelector("#form-novo-pet");
+ // Recuperar os pets cadastrados
+let petsIniciais = JSON.parse(localStorage.getItem("pets")) || [];
 
-if (formularioPet) {
+// Verificar se Berg já está cadastrado
+let bergExiste = petsIniciais.some(function(pet) {
+    return pet.nome === "Berg";
+});
 
-    formularioPet.addEventListener("submit", function(event) {
-
-        // Impede que a página seja recarregada.
-        event.preventDefault();
-
-        // Obtém os dados do formulário.
-        const nome = document.querySelector("#nome").value;
-        const tipo = document.querySelector("#tipo").value;
-        const raca = document.querySelector("#raca").value;
-        const tamanho = document.querySelector("#tamanho").value;
-        const proprietario = document.querySelector("#proprietario").value;
-
-        // Cria um objeto com os dados do pet.
-        const novoPet = {
-            nome: nome,
-            tipo: tipo,
-            raca: raca,
-            tamanho: tamanho,
-            proprietario: proprietario
-        };
-
-        // Recupera os pets já salvos.
-        let pets = JSON.parse(localStorage.getItem("pets")) || [];
-
-        // Adiciona o novo pet.
-        pets.push(novoPet);
-
-        // Salva a lista atualizada no navegador.
-        localStorage.setItem("pets", JSON.stringify(pets));
-
-        alert("Pet cadastrado com sucesso!");
-
-        // Volta para a página de pets.
-        window.location.href = "pets.html";
+// Adicionar Berg caso não exista
+if (!bergExiste) {
+    petsIniciais.push({
+        nome: "Berg",
+        tipo: "Cachorro",
+        raca: "Vira lata",
+        tamanho: "Grande",
+        proprietario: "Geovane Oliveira"
     });
 }
 
+// Verificar se Lara já está cadastrada
+let laraExiste = petsIniciais.some(function(pet) {
+    return pet.nome === "Lara";
+});
+
+// Adicionar Lara caso não exista
+if (!laraExiste) {
+    petsIniciais.push({
+        nome: "Lara",
+        tipo: "Gata",
+        raca: "Siamês",
+        tamanho: "Pequeno",
+        proprietario: "Maria das Graças"
+    });
+}
+
+// Salvar a lista atualizada
+localStorage.setItem("pets", JSON.stringify(petsIniciais));
+
+
+// Verificar se os pets iniciais já foram adicionados
+if (localStorage.getItem("pets-iniciais-adicionados") === null) {
+
+    // Recuperar os pets cadastrados
+    let petsIniciais = JSON.parse(localStorage.getItem("pets")) || [];
+
+    // Adicionar os pets iniciais
+    petsIniciais.push(
+        {
+            nome: "Berg",
+            tipo: "Cachorro",
+            raca: "Vira lata",
+            tamanho: "Grande",
+            proprietario: "Geovane Oliveira"
+        },
+        {
+            nome: "Lara",
+            tipo: "Gata",
+            raca: "Siamês",
+            tamanho: "Pequeno",
+            proprietario: "Maria das Graças"
+        }
+    );
+
+    // Salvar os pets no navegador
+    localStorage.setItem("pets", JSON.stringify(petsIniciais));
+
+    // Registrar que os pets iniciais já foram adicionados
+    localStorage.setItem("pets-iniciais-adicionados", "sim");
+}
 
 
 // Exibe os pets salvos na tabela.
@@ -76,8 +103,11 @@ if (tabelaPets) {
 }
 
 
-// Verificar se estamos na página de editar pet
-if (document.getElementById("form-editar-pet")) {
+
+ // Verificar se estamos na página de editar pet
+const formularioEdicao = document.getElementById("form-editar-pet");
+
+if (formularioEdicao) {
 
     // Recuperar o índice do pet pela URL
     const parametros = new URLSearchParams(window.location.search);
@@ -87,7 +117,7 @@ if (document.getElementById("form-editar-pet")) {
     let pets = JSON.parse(localStorage.getItem("pets")) || [];
 
     // Buscar o pet selecionado
-    let pet = pets[indice];
+    let pet = indice !== null ? pets[Number(indice)] : undefined;
 
     // Verificar se o pet existe
     if (pet) {
@@ -98,7 +128,32 @@ if (document.getElementById("form-editar-pet")) {
         document.getElementById("raca").value = pet.raca;
         document.getElementById("tamanho").value = pet.tamanho;
 
+        // Quando clicar em salvar
+        formularioEdicao.addEventListener("submit", function(event) {
+
+            // Impedir o recarregamento da página
+            event.preventDefault();
+
+            // Atualizar os dados do pet
+            pet.nome = document.getElementById("nome").value;
+            pet.tipo = document.getElementById("tipo").value;
+            pet.raca = document.getElementById("raca").value;
+            pet.tamanho = document.getElementById("tamanho").value;
+
+            // Atualizar a lista de pets
+            pets[indice] = pet;
+
+            // Salvar no localStorage
+            localStorage.setItem("pets", JSON.stringify(pets));
+
+            alert("Pet atualizado com sucesso!");
+
+            // Voltar para a listagem
+            window.location.href = "pets.html";
+        });
+
     } else {
         alert("Pet não encontrado!");
     }
 }
+
