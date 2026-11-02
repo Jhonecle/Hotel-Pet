@@ -18,22 +18,24 @@
 
     <h2>Cadastrar Novo Pet</h2>
 
-    <form>
+    <form id="form-novo-pet">
         <label for="nome">Nome:</label><br>
-        <input type="text" id="nome" name="nome"><br><br>
+        <input type="text" id="nome" name="nome" required><br><br>
 
         <label for="tipo">Tipo de animal:</label><br>
         <select id="tipo" name="tipo">
+            <option value="">Selecione...</option>
             <option>Cachorro</option>
             <option>Gato</option>
             <option>Outro</option>
         </select><br><br>
 
         <label for="raca">Raça:</label><br>
-        <input type="text" id="raca" name="raca"><br><br>
+        <input type="text" id="raca" name="raca" required><br><br>
 
         <label for="tamanho">Tamanho:</label><br>
-        <select id="tamanho" name="tamanho">
+        <select id="tamanho" name="tamanho" required>
+            <option value="">Selecione...</option>
             <option>Pequeno</option>
             <option>Médio</option>
             <option>Grande</option>
@@ -41,12 +43,13 @@
 
         <label for="proprietario">Proprietário:</label><br>
         <select id="proprietario" name="proprietario">
+            <option value="">Selecione...</option>
             <option>Geovane Oliveira</option>
             <option>Maria das Graças</option>
         </select><br><br>
 
         <label for="foto">Foto:</label><br>
-        <input type="file" id="foto" name="foto"><br><br>
+        <input type="file" id="foto" name="foto" required><br><br>
 
         <input type="submit" value="Salvar">
         <input type="reset" value="Limpar">
