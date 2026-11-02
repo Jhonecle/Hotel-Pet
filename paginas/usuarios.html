@@ -43,7 +43,8 @@
 
     <h3>Usuários cadastrados</h3>
 
-    <table border="1">
+    <table id="tabela-usuarios" border="1">
+   <thead>
         <tr>
             <th>Nome</th>
             <th>E-mail</th>
@@ -51,6 +52,12 @@
             <th>Status</th>
             <th>Ações</th>
         </tr>
+    </thead>
+
+    <tbody>
+
+        <!-- Mantenha aqui os dois usuários que você já cadastrou -->
+
         <tr>
             <td>João da Silva</td>
             <td>joao@email.com</td>
@@ -62,6 +69,7 @@
                 <a href="usuarios.html">Deletar</a>
             </td>
         </tr>
+
         <tr>
             <td>Ana Oliveira</td>
             <td>ana@hotelpet.com</td>
@@ -73,8 +81,12 @@
                 <a href="usuarios.html">Deletar</a>
             </td>
         </tr>
-    </table>
+
+    </tbody>
+
+</table>
     <script src="../arquivo.js/navegacao.js"></script>
+    <script src="../arquivo.js/buscas.js"></script>
 
 </body>
 </html>
