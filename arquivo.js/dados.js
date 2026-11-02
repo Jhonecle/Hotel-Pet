@@ -53,7 +53,7 @@ if (tabelaPets) {
 
     const pets = JSON.parse(localStorage.getItem("pets")) || [];
 
-    pets.forEach(function(pet) {
+    pets.forEach(function(pet, indice) {
 
         const linha = document.createElement("tr");
 
@@ -66,7 +66,7 @@ if (tabelaPets) {
             <td>
                 <a href="ver-pet.html">Visualizar</a>
                 |
-                <a href="editar-pet.html">Editar</a>
+                <a href="editar-pet.html?indice=${indice}">Editar</a>
             </td>
         `;
 
