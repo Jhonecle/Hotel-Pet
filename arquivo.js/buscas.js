@@ -130,9 +130,14 @@ if (formularioBuscaReservas) {
         const mensagem = document.querySelector("#mensagem-reservas");
 
         if (mensagem) {
-            mensagem.textContent =
-                encontrados + " reserva(s) encontrada(s).";
-        }
+
+    if (encontrados === 0) {
+        mensagem.textContent = "Nenhuma reserva encontrada.";
+    } else {
+        mensagem.textContent =
+            encontrados + " reserva(s) encontrada(s).";
+    }
+}
     });
 
     formularioBuscaReservas.addEventListener("reset", function() {
@@ -195,9 +200,14 @@ if (formularioBuscaUsuarios) {
         const mensagem = document.querySelector("#mensagem-usuarios");
 
         if (mensagem) {
-            mensagem.textContent =
-                encontrados + " usuário(s) encontrado(s).";
-        }
+
+    if (encontrados === 0) {
+        mensagem.textContent = "Nenhum usuário encontrado.";
+    } else {
+        mensagem.textContent =
+            encontrados + " usuário(s) encontrado(s).";
+    }
+}
     });
 
     formularioBuscaUsuarios.addEventListener("reset", function() {
