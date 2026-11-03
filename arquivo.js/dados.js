@@ -330,12 +330,56 @@ if (tabelaReservasHotel) {
             <td>${reserva.proprietario}</td>
             <td>${formatarDataReserva(reserva.inicio)} até ${formatarDataReserva(reserva.fim)}</td>
             <td>${reserva.status}</td>
-            <td>-</td>
+            <td>
+                <a href="visualizar-reserva.html?id=${reserva.id}">
+                    Visualizar
+                </a>
+                |
+                <a href="editar-reserva.html?id=${reserva.id}">
+                    Editar
+                </a>
+                |
+                <a href="#" onclick="excluirReserva(${reserva.id})">
+                    Excluir
+                </a>
+            </td>
         `;
 
         tabelaReservasHotel.appendChild(linha);
     });
 }
+
+ // ==========================================
+ // 6.2. VISUALIZAR DETALHES DA RESERVA
+ // ==========================================
+
+const idReservaVisualizar = new URLSearchParams(window.location.search).get("id");
+
+const campoIdReserva = document.querySelector("#id");
+
+if (campoIdReserva) {
+
+    const reservaSelecionada = reservasHotel.find(
+        reserva => String(reserva.id) === idReservaVisualizar
+    );
+
+    if (reservaSelecionada) {
+
+        document.querySelector("#id").textContent = reservaSelecionada.id;
+        document.querySelector("#pet").textContent = reservaSelecionada.pet;
+        document.querySelector("#proprietario").textContent = reservaSelecionada.proprietario;
+        document.querySelector("#inicio").textContent = formatarDataReserva(reservaSelecionada.inicio);
+        document.querySelector("#fim").textContent = formatarDataReserva(reservaSelecionada.fim);
+        document.querySelector("#status").textContent = reservaSelecionada.status;
+        document.querySelector("#informacoes").textContent =
+            reservaSelecionada.informacoes || "Nenhuma informação cadastrada.";
+
+    } else {
+
+        document.querySelector("h2").textContent = "Reserva não encontrada";
+    }
+}
+
 
 // ==========================================
 // 7. CADASTRAR E LISTAR USUÁRIOS
