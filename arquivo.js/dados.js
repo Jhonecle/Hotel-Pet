@@ -331,8 +331,8 @@ if (tabelaReservasHotel) {
             <td>${formatarDataReserva(reserva.inicio)} até ${formatarDataReserva(reserva.fim)}</td>
             <td>${reserva.status}</td>
             <td>
-                <a href="visualizar-reserva.html?id=${reserva.id}">
-                    Visualizar
+                <a href="ver-reserva.html?id=${reserva.id}">
+                Visualizar
                 </a>
                 |
                 <a href="editar-reserva.html?id=${reserva.id}">
@@ -374,11 +374,114 @@ if (campoIdReserva) {
         document.querySelector("#informacoes").textContent =
             reservaSelecionada.informacoes || "Nenhuma informação cadastrada.";
 
+        document.querySelector("#link-editar-reserva").href =
+            `editar-reserva.html?id=${reservaSelecionada.id}`;
+
     } else {
 
         document.querySelector("h2").textContent = "Reserva não encontrada";
     }
 }
+
+
+ // ==========================================
+ // 6.3. EDITAR RESERVAS
+ // ==========================================
+
+// Recupera o ID da reserva pelo endereço
+const idReservaEdicao = new URLSearchParams(window.location.search).get("id");
+
+// Localiza o formulário de edição
+const formularioEditarReserva = document.querySelector("#form-editar-reserva");
+
+if (formularioEditarReserva) {
+
+    // Procura a reserva pelo ID
+    const indiceReservaEdicao = reservasHotel.findIndex(
+        reserva => String(reserva.id) === idReservaEdicao
+    );
+
+    if (indiceReservaEdicao !== -1) {
+
+        const reservaEdicao = reservasHotel[indiceReservaEdicao];
+
+        // Preenche a lista de pets
+        const selecaoPetEdicao = document.querySelector("#pet");
+
+        pets.forEach((pet, indice) => {
+
+            const opcao = document.createElement("option");
+
+            opcao.value = indice;
+            opcao.textContent = pet.nome;
+
+            selecaoPetEdicao.appendChild(opcao);
+        });
+
+        // Identifica o pet da reserva
+        const indicePetAtual = pets.findIndex(
+            pet => pet.nome === reservaEdicao.pet
+        );
+
+        // Preenche os campos com os dados atuais
+        document.querySelector("#id-reserva").value = reservaEdicao.id;
+
+        if (indicePetAtual !== -1) {
+            selecaoPetEdicao.value = indicePetAtual;
+        }
+
+        document.querySelector("#inicio").value = reservaEdicao.inicio;
+        document.querySelector("#fim").value = reservaEdicao.fim;
+        document.querySelector("#informacoes").value = reservaEdicao.informacoes || "";
+        document.querySelector("#status").value = reservaEdicao.status;
+
+        // Salva as alterações
+        formularioEditarReserva.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const indicePetSelecionado = selecaoPetEdicao.value;
+            const petSelecionado = pets[indicePetSelecionado];
+
+            if (!petSelecionado) {
+                alert("Selecione um pet.");
+                return;
+            }
+
+            const novaDataInicio = document.querySelector("#inicio").value;
+            const novaDataFim = document.querySelector("#fim").value;
+
+            if (novaDataFim < novaDataInicio) {
+                alert("A data de término não pode ser anterior à data de início.");
+                return;
+            }
+
+            // Atualiza a reserva sem alterar seu ID
+            reservasHotel[indiceReservaEdicao] = {
+                id: reservaEdicao.id,
+                pet: petSelecionado.nome,
+                proprietario: petSelecionado.proprietario,
+                inicio: novaDataInicio,
+                fim: novaDataFim,
+                informacoes: document.querySelector("#informacoes").value,
+                status: document.querySelector("#status").value
+            };
+
+            // Atualiza o armazenamento
+            localStorage.setItem("reservas", JSON.stringify(reservasHotel));
+
+            alert("Reserva atualizada com sucesso!");
+
+            window.location.href = "reservas.html";
+        });
+
+    } else {
+
+        alert("Reserva não encontrada.");
+        window.location.href = "reservas.html";
+    }
+}
+
 
 
 // ==========================================

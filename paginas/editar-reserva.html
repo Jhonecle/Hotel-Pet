@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -13,50 +14,52 @@
         <a href="reservas.html">Reservas</a> |
         <a href="pets.html">Pets</a> |
         <a href="usuarios.html">Usuários</a> |
-        <a href="configuracoes.html">Configurações</a>
+        <a href="configuracoes.html">Configurações</a> |
+        <a href="editar-perfil.html">Meu Perfil</a> |
+        <a href="../index.html">Sair</a>
     </p>
 
     <h2>Editar Reserva</h2>
 
-    <form>
+    <form id="form-editar-reserva">
+
+        <label for="id-reserva">ID da Reserva:</label><br>
+        <input type="text" id="id-reserva" readonly><br><br>
+
         <label for="pet">Pet:</label><br>
-        <select id="pet" name="pet">
-            <option>Berg</option>
-            <option>Lara</option>
-            <option>Lion</option>
+        <select id="pet" required>
+            <option value="">Selecione um pet</option>
         </select><br><br>
 
         <label for="inicio">Data de início:</label><br>
-        <input type="date" id="inicio" name="inicio"><br><br>
+        <input type="date" id="inicio" required><br><br>
 
         <label for="fim">Data de término:</label><br>
-        <input type="date" id="fim" name="fim"><br><br>
+        <input type="date" id="fim" required><br><br>
 
-        <label for="notas">Informações sobre o Pet:</label><br>
-        <textarea id="notas" name="notas" rows="5" cols="40"></textarea><br><br>
-
-        <label for="anotacoes">Anotações da estadia:</label><br>
-        <textarea id="anotacoes" name="anotacoes" rows="5" cols="40"></textarea><br><br>
+        <label for="informacoes">Informações sobre o Pet:</label><br>
+        <textarea id="informacoes" rows="5" cols="40"></textarea><br><br>
 
         <label for="status">Status:</label><br>
-        <select id="status" name="status">
-            <option>Em andamento</option>
-            <option>Finalizada</option>
+        <select id="status" required>
+            <option value="Agendada">Agendada</option>
+            <option value="Confirmada">Confirmada</option>
+            <option value="Em andamento">Em andamento</option>
+            <option value="Concluída">Concluída</option>
+            <option value="Cancelada">Cancelada</option>
         </select><br><br>
 
-        <label for="imagem">Adicionar imagem:</label><br>
-        <input type="file" id="imagem" name="imagem"><br><br>
-
-        <label for="recibo">Recibo:</label><br>
-        <input type="file" id="recibo" name="recibo"><br><br>
-
-        <p><strong>Total das diárias: R$ 100,00</strong></p>
-
-        <input type="submit" value="Salvar">
+        <input type="submit" value="Salvar Alterações">
         <input type="reset" value="Limpar">
+
     </form>
 
-    <p class="menu"><a href="reservas.html">Voltar</a></p>
+    <p class="menu">
+        <a href="reservas.html">Voltar para Reservas</a>
+    </p>
+
+    <script src="../arquivo.js/navegacao.js"></script>
+    <script src="../arquivo.js/dados.js"></script>
 
 </body>
 </html>

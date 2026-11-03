@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -18,44 +19,23 @@
         <a href="../index.html">Sair</a>
     </p>
 
-    <h2>Visualizar Reserva:</h2>
+    <h2>Visualizar Reserva</h2>
 
-    <p><strong>ID:</strong> 001</p>
-
-    <p><strong>Proprietário:</strong> João da Silva</p>
-
-    <p><strong>Pet:</strong> Max</p>
-
-    <p><strong>Data de início:</strong> 10/08/2026</p>
-
-    <p><strong>Data de término:</strong> 15/08/2026</p>
-
-    <p>
-        <strong>Informações:</strong>
-        O pet precisa receber sua alimentação normalmente.
-    </p>
-
-    <p>
-        <strong>Anotações dos funcionários:</strong>
-        Pet está tranquilo durante a estadia.
-    </p>
-
-    <p><strong>Status:</strong> Em andamento</p>
-
-    <p><strong>Total:</strong> R$ 200,00</p>
-
-    <h3>Imagens da estadia</h3>
-
-    <p>Imagem do pet durante a estadia.</p>
-
-    <h3>Recibo</h3>
-
-    <p>Ainda não disponível.</p>
+    <p><strong>ID:</strong> <span id="id"></span></p>
+    <p><strong>Proprietário:</strong> <span id="proprietario"></span></p>
+    <p><strong>Pet:</strong> <span id="pet"></span></p>
+    <p><strong>Data de início:</strong> <span id="inicio"></span></p>
+    <p><strong>Data de término:</strong> <span id="fim"></span></p>
+    <p><strong>Informações:</strong> <span id="informacoes"></span></p>
+    <p><strong>Status:</strong> <span id="status"></span></p>
 
     <p class="menu">
-        <a href="editar-reserva.html">Editar reserva</a> |
+        <a id="link-editar-reserva" href="#">Editar reserva</a> |
         <a href="reservas.html">Voltar</a>
     </p>
+
+    <script src="../arquivo.js/navegacao.js"></script>
+    <script src="../arquivo.js/dados.js"></script>
 
 </body>
 </html>
