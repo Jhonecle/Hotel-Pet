@@ -1,50 +1,43 @@
 
 /*
     Hotel Pet
-    Cadastro, exibição e edição de Pets
+    Inicialização dos pets
 */
-
-// ==========================================
-// 1. INICIALIZAÇÃO DOS PETS
-// ==========================================
 
 // Recuperar os pets cadastrados
 let pets = JSON.parse(localStorage.getItem("pets")) || [];
 
-// Verificar se Berg já existe
-let bergExiste = pets.some(function(pet) {
-    return pet.nome === "Berg";
-});
+// Verificar se os pets iniciais já foram adicionados
+if (localStorage.getItem("pets-iniciais-adicionados") === null) {
 
-// Adicionar Berg somente se não existir
-if (!bergExiste) {
-    pets.push({
-        nome: "Berg",
-        tipo: "Cachorro",
-        raca: "Vira lata",
-        tamanho: "Grande",
-        proprietario: "Geovane Oliveira"
-    });
+    // Adicionar os pets somente se o armazenamento estiver vazio
+    if (pets.length === 0) {
+
+        pets.push(
+            {
+                nome: "Berg",
+                tipo: "Cachorro",
+                raca: "Vira lata",
+                tamanho: "Grande",
+                proprietario: "Geovane Oliveira"
+            },
+            {
+                nome: "Lara",
+                tipo: "Gata",
+                raca: "Siamês",
+                tamanho: "Pequeno",
+                proprietario: "Maria das Graças"
+            }
+        );
+    }
+
+    // Salvar os pets
+    localStorage.setItem("pets", JSON.stringify(pets));
+
+    // Registrar que a inicialização foi realizada
+    localStorage.setItem("pets-iniciais-adicionados", "sim");
 }
 
-// Verificar se Lara já existe
-let laraExiste = pets.some(function(pet) {
-    return pet.nome === "Lara";
-});
-
-// Adicionar Lara somente se não existir
-if (!laraExiste) {
-    pets.push({
-        nome: "Lara",
-        tipo: "Gata",
-        raca: "Siamês",
-        tamanho: "Pequeno",
-        proprietario: "Maria das Graças"
-    });
-}
-
-// Salvar os pets no navegador
-localStorage.setItem("pets", JSON.stringify(pets));
 
 
 // ==========================================
