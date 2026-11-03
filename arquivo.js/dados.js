@@ -517,7 +517,7 @@ if (tabelaUsuariosHotel) {
 
     tabelaUsuariosHotel.innerHTML = "";
 
-    usuariosHotel.forEach(usuario => {
+    usuariosHotel.forEach((usuario, indice) => {
 
         const linha = document.createElement("tr");
 
@@ -526,9 +526,157 @@ if (tabelaUsuariosHotel) {
             <td>${usuario.email}</td>
             <td>${usuario.funcao}</td>
             <td>${usuario.status}</td>
-            <td>-</td>
+            <td>
+                <a href="ver-usuario.html?indice=${indice}">Visualizar</a> |
+                <a href="editar-usuario.html?indice=${indice}">Editar</a> |
+                <a href="#" onclick="excluirUsuario(${indice})">Excluir</a>
+            </td>
         `;
 
         tabelaUsuariosHotel.appendChild(linha);
     });
 }
+
+// ==========================================
+// 7.1. EXCLUIR USUÁRIO
+// ==========================================
+
+function excluirUsuario(indice) {
+
+    const confirmar = confirm("Deseja realmente excluir este usuário?");
+
+    if (confirmar) {
+
+        usuariosHotel.splice(indice, 1);
+
+        localStorage.setItem("usuarios", JSON.stringify(usuariosHotel));
+
+        alert("Usuário excluído com sucesso!");
+
+        location.reload();
+    }
+}
+
+
+// ==========================================
+// 7.2. VISUALIZAR USUÁRIO
+// ==========================================
+
+const indiceUsuarioVisualizar = new URLSearchParams(
+    window.location.search
+).get("indice");
+
+const linkEditarUsuario = document.querySelector("#link-editar-usuario");
+
+if (linkEditarUsuario) { 
+
+    const usuarioSelecionado = usuariosHotel[
+        Number(indiceUsuarioVisualizar)
+    ];
+
+    if (usuarioSelecionado) {
+
+        document.querySelector("#nome").textContent =
+            usuarioSelecionado.nome;
+
+        document.querySelector("#email").textContent =
+            usuarioSelecionado.email;
+
+        document.querySelector("#telefone").textContent =
+            usuarioSelecionado.telefone;
+
+        document.querySelector("#funcao").textContent =
+            usuarioSelecionado.funcao;
+
+        document.querySelector("#status").textContent =
+            usuarioSelecionado.status;
+
+        document.querySelector("#link-editar-usuario").href =
+            `editar-usuario.html?indice=${indiceUsuarioVisualizar}`;
+
+    } else {
+
+        document.querySelector("h2").textContent =
+            "Usuário não encontrado";
+    }
+}
+
+
+// ==========================================
+// 7.3. EDITAR USUÁRIO
+// ==========================================
+
+// Recupera o índice do usuário pela URL
+const indiceUsuarioEdicao = new URLSearchParams(
+    window.location.search
+).get("indice");
+
+// Identifica o formulário
+const formularioEditarUsuario = document.querySelector(
+    "#form-editar-usuario"
+);
+
+if (formularioEditarUsuario) {
+
+    // Localiza o usuário selecionado
+    const usuarioSelecionado = usuariosHotel[
+        Number(indiceUsuarioEdicao)
+    ];
+
+    if (usuarioSelecionado) {
+
+        // Preenche os campos com os dados atuais
+        document.querySelector("#nome").value =
+            usuarioSelecionado.nome;
+
+        document.querySelector("#email").value =
+            usuarioSelecionado.email;
+
+        document.querySelector("#telefone").value =
+            usuarioSelecionado.telefone;
+
+        document.querySelector("#funcao").value =
+            usuarioSelecionado.funcao;
+
+        document.querySelector("#status").value =
+            usuarioSelecionado.status;
+
+        // Salva as alterações
+        formularioEditarUsuario.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            usuarioSelecionado.nome =
+                document.querySelector("#nome").value;
+
+            usuarioSelecionado.email =
+                document.querySelector("#email").value;
+
+            usuarioSelecionado.telefone =
+                document.querySelector("#telefone").value;
+
+            usuarioSelecionado.funcao =
+                document.querySelector("#funcao").value;
+
+            usuarioSelecionado.status =
+                document.querySelector("#status").value;
+
+            localStorage.setItem(
+                "usuarios",
+                JSON.stringify(usuariosHotel)
+            );
+
+            alert("Usuário atualizado com sucesso!");
+
+            window.location.href = "usuarios.html";
+        });
+
+    } else {
+
+        document.querySelector("h2").textContent =
+            "Usuário não encontrado";
+
+        formularioEditarUsuario.style.display = "none";
+    }
+}
+

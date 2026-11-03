@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -20,20 +21,23 @@
 
     <h2>Visualizar Usuário</h2>
 
-    <p><strong>Nome:</strong> João da Silva</p>
+    <p><strong>Nome:</strong> <span id="nome"></span></p>
 
-    <p><strong>E-mail:</strong> joao@email.com</p>
+    <p><strong>E-mail:</strong> <span id="email"></span></p>
 
-    <p><strong>Telefone:</strong> (77) 99999-9999</p>
+    <p><strong>Telefone:</strong> <span id="telefone"></span></p>
 
-    <p><strong>Função:</strong> Cliente</p>
+    <p><strong>Função:</strong> <span id="funcao"></span></p>
 
-    <p><strong>Status:</strong> Ativo</p>
+    <p><strong>Status:</strong> <span id="status"></span></p>
 
     <p class="menu">
-        <a href="editar-usuario.html">Editar Usuário</a> |
+        <a id="link-editar-usuario" href="#">Editar Usuário</a> |
         <a href="usuarios.html">Voltar</a>
     </p>
+
+    <script src="../arquivo.js/navegacao.js"></script>
+    <script src="../arquivo.js/dados.js"></script>
 
 </body>
 </html>
