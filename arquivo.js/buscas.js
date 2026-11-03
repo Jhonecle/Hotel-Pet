@@ -131,11 +131,11 @@ if (formularioBuscaReservas) {
 
         if (mensagem) {
 
-    if (encontrados === 0) {
-        mensagem.textContent = "Nenhuma reserva encontrada.";
-    } else {
-        mensagem.textContent =
-            encontrados + " reserva(s) encontrada(s).";
+            if (encontrados === 0) {
+                 mensagem.textContent = "Nenhuma reserva encontrada.";
+             } else {
+                 mensagem.textContent =
+                     encontrados + " reserva(s) encontrada(s).";
     }
 }
     });

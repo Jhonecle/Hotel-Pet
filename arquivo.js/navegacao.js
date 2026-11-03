@@ -14,7 +14,7 @@ const paginaAtual = window.location.pathname.split("/").pop();
 links.forEach(function(link) {
 
     // Obtém o destino definido no atributo href
-    const destino = link.getAttribute("href");
+    const destino = link.getAttribute("href").split("?")[0];
 
     // Compara o destino com a página atual
     if (destino === paginaAtual) {

@@ -349,6 +349,33 @@ if (tabelaReservasHotel) {
     });
 }
 
+// ==========================================
+// 6.1. EXCLUIR RESERVA
+// ==========================================
+
+function excluirReserva(id) {
+
+    const confirmar = confirm(
+        "Deseja realmente excluir esta reserva?"
+    );
+
+    if (confirmar) {
+
+        reservasHotel = reservasHotel.filter(
+            reserva => reserva.id !== id
+        );
+
+        localStorage.setItem(
+            "reservas",
+            JSON.stringify(reservasHotel)
+        );
+
+        alert("Reserva excluída com sucesso!");
+
+        location.reload();
+    }
+}
+
  // ==========================================
  // 6.2. VISUALIZAR DETALHES DA RESERVA
  // ==========================================
@@ -619,9 +646,15 @@ const formularioEditarUsuario = document.querySelector(
 if (formularioEditarUsuario) {
 
     // Localiza o usuário selecionado
-    const usuarioSelecionado = usuariosHotel[
-        Number(indiceUsuarioEdicao)
-    ];
+    const indice = Number(indiceUsuarioEdicao);
+
+    const usuarioSelecionado =
+        indiceUsuarioEdicao !== null &&
+        indiceUsuarioEdicao.trim() !== "" &&
+        Number.isInteger(indice) &&
+        indice >= 0
+        ? usuariosHotel[indice]
+        : undefined;
 
     if (usuarioSelecionado) {
 
