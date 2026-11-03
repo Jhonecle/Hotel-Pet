@@ -16,24 +16,30 @@ if (formularioBuscaPets) {
 
     formularioBuscaPets.addEventListener("submit", function(event) {
 
+        // Impedir o recarregamento da página
         event.preventDefault();
 
+        // Recuperar o texto pesquisado
         const pesquisa = document.querySelector("#pesquisa-pets")
             .value.trim().toLowerCase();
 
+        // Recuperar as linhas da tabela
         const linhas = document.querySelectorAll("#tabela-pets tbody tr");
 
         let encontrados = 0;
 
+        // Percorrer os pets cadastrados
         linhas.forEach(function(linha) {
 
             const nome = linha.cells[0].textContent.toLowerCase();
             const raca = linha.cells[2].textContent.toLowerCase();
 
+            // Verificar nome ou raça
             const corresponde =
                 nome.includes(pesquisa) ||
                 raca.includes(pesquisa);
 
+            // Mostrar ou esconder a linha
             linha.hidden = !corresponde;
 
             if (corresponde) {
@@ -41,24 +47,38 @@ if (formularioBuscaPets) {
             }
         });
 
+        // Exibir mensagem
         const mensagem = document.querySelector("#mensagem-pets");
 
         if (mensagem) {
-            mensagem.textContent = encontrados + " pet(s) encontrado(s).";
+
+            if (encontrados === 0) {
+                mensagem.textContent = "Nenhum pet encontrado.";
+            } else {
+                mensagem.textContent =
+                    encontrados + " pet(s) encontrado(s).";
+            }
         }
     });
 
+    // Limpar a pesquisa
     formularioBuscaPets.addEventListener("reset", function() {
 
         setTimeout(function() {
 
-            const linhas = document.querySelectorAll("#tabela-pets tbody tr");
+            const linhas = document.querySelectorAll(
+                "#tabela-pets tbody tr"
+            );
 
             linhas.forEach(function(linha) {
                 linha.hidden = false;
             });
 
-            document.querySelector("#mensagem-pets").textContent = "";
+            const mensagem = document.querySelector("#mensagem-pets");
+
+            if (mensagem) {
+                mensagem.textContent = "";
+            }
 
         }, 0);
     });
