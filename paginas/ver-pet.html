@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -18,33 +19,51 @@
 
     <h2>Visualizar Pet</h2>
 
-    <p><strong>Nome:</strong> Berg</p>
-    <p><strong>Tipo:</strong> Cachorro</p>
-    <p><strong>Raça:</strong> Vira lata</p>
-    <p><strong>Tamanho:</strong> Grande</p>
-    <p><strong>Proprietário:</strong> Geovane Oliveira</p>
-    <p><strong>Foto:</strong> Foto do Berg</p>
+    <!-- Informações do animal -->
+    <div id="dados-pet">
+
+        <p><strong>Nome:</strong> <span id="nome"></span></p>
+
+        <p><strong>Tipo:</strong> <span id="tipo"></span></p>
+
+        <p><strong>Raça:</strong> <span id="raca"></span></p>
+
+        <p><strong>Tamanho:</strong> <span id="tamanho"></span></p>
+
+        <p><strong>Proprietário:</strong> <span id="proprietario"></span></p>
+
+    </div>
 
     <h3>Histórico de Reservas</h3>
 
     <table border="1">
-        <tr>
-            <th>Período</th>
-            <th>Status</th>
-            <th>Valor</th>
-        </tr>
-        <tr>
-            <td>01/07/2026 a 05/07/2026</td>
-            <td>Finalizada</td>
-            <td>R$ 160,00</td>
-        </tr>
+        <thead>
+            <tr>
+                <th>Período</th>
+                <th>Status</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>01/07/2026 a 05/07/2026</td>
+                <td>Finalizada</td>
+                <td>R$ 160,00</td>
+            </tr>
+        </tbody>
     </table>
 
     <p class="menu">
-        <a href="editar-pet.html">Editar Pet</a>|
-        <a href="pets.html">Deletar Pet</a>|
-        <a href="pets.html">Voltar</a>
+
+        <a id="link-editar-pet" href="#">Editar Pet</a> |
+
+        <a href="pets.html">Voltar para Pets</a>
+
     </p>
+
+    <script src="../arquivo.js/dados.js"></script>
 
 </body>
 </html>
+

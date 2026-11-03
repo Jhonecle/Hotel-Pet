@@ -176,5 +176,60 @@ if (formularioEdicao) {
         window.location.href = "pets.html";
     }
 }
+/*
+    ==========================================
+    5. VISUALIZAÇÃO INDIVIDUAL DOS PETS
+    ==========================================
+*/
 
+// Verificar se estamos na página de visualizar pet
+const dadosPet = document.getElementById("dados-pet");
 
+if (dadosPet) {
+
+    // Recuperar o índice enviado pela URL
+    const parametros = new URLSearchParams(window.location.search);
+
+    const indiceTexto = parametros.get("indice");
+
+    const indice = Number(indiceTexto);
+
+    // Recuperar os pets cadastrados
+    const listaPetsVisualizacao =
+        JSON.parse(localStorage.getItem("pets")) || [];
+
+    // Localizar o pet selecionado
+    const pet = listaPetsVisualizacao[indice];
+
+    // Verificar se o pet existe
+    if (
+        indiceTexto !== null &&
+        indiceTexto.trim() !== "" &&
+        Number.isInteger(indice) &&
+        indice >= 0 &&
+        pet
+    ) {
+
+        // Exibir os dados do animal
+        document.getElementById("nome").textContent = pet.nome;
+
+        document.getElementById("tipo").textContent = pet.tipo;
+
+        document.getElementById("raca").textContent = pet.raca;
+
+        document.getElementById("tamanho").textContent = pet.tamanho;
+
+        document.getElementById("proprietario").textContent =
+            pet.proprietario;
+
+        // Preparar o link para editar o pet selecionado
+        document.getElementById("link-editar-pet").href =
+            "editar-pet.html?indice=" + indice;
+
+    } else {
+
+        alert("Pet não encontrado!");
+
+        window.location.href = "pets.html";
+    }
+}
