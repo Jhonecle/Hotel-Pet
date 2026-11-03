@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Hotel Pet - Fazer Reserva</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../CSS/style.css">
 </head>
 <body>
 
@@ -18,30 +18,36 @@
 
     <h2>Fazer Reserva</h2>
 
-    <form>
-        <label for="pet">Pet:</label><br>
-        <select id="pet" name="pet">
-            <option>Berg</option>
-            <option>Lara</option>
-            <option>Lion</option>
-        </select><br><br>
 
-        <label for="inicio">Data de início:</label><br>
-        <input type="date" id="inicio" name="inicio"><br><br>
+<form id="form-nova-reserva">
 
-        <label for="fim">Data de término:</label><br>
-        <input type="date" id="fim" name="fim"><br><br>
+    <label for="pet">Pet:</label><br>
+    <select id="pet" name="pet" required>
+        <option value="">Selecione um pet</option>
+    </select><br><br>
 
-        <label for="informacoes">Informações sobre o Pet:</label><br>
-        <textarea id="informacoes" name="informacoes" rows="5" cols="40"></textarea><br><br>
+    <label for="inicio">Data de início:</label><br>
+    <input type="date" id="inicio" name="inicio" required><br><br>
 
-        <p><strong>Total das diárias: R$ 100,00</strong></p>
+    <label for="fim">Data de término:</label><br>
+    <input type="date" id="fim" name="fim" required><br><br>
 
-        <input type="submit" value="Salvar">
-        <input type="reset" value="Limpar">
-    </form>
+    <label for="informacoes">Informações sobre o Pet:</label><br>
+    <textarea id="informacoes" name="informacoes" rows="5" cols="40"></textarea><br><br>
+
+    <p><strong>Valor da diária: R$ 100,00</strong></p>
+
+    <input type="submit" value="Salvar">
+    <input type="reset" value="Limpar">
+
+</form>
+```
 
     <p class="menu"><a href="reservas.html">Voltar para Reservas</a></p>
+
+    <script src="../arquivo.js/navegacao.js"></script>
+    <script src="../arquivo.js/dados.js"></script>
+    <script src="../arquivo.js/buscas.js"></script>
 
 </body>
 </html>

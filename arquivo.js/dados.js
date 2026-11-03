@@ -233,3 +233,164 @@ if (dadosPet) {
         window.location.href = "pets.html";
     }
 }
+
+// ==========================================
+// 6. CADASTRAR E LISTAR RESERVAS
+// ==========================================
+
+// Recupera as reservas salvas
+let reservasHotel = JSON.parse(localStorage.getItem("reservas")) || [];
+
+// Elementos da página de nova reserva
+const formularioNovaReserva = document.querySelector("#form-nova-reserva");
+const selecaoPetReserva = document.querySelector("#pet");
+
+// Preenche a lista de pets automaticamente
+if (selecaoPetReserva) {
+
+    selecaoPetReserva.innerHTML = '<option value="">Selecione um pet</option>';
+
+    pets.forEach((pet, indice) => {
+        const opcao = document.createElement("option");
+
+        opcao.value = indice;
+        opcao.textContent = pet.nome;
+
+        selecaoPetReserva.appendChild(opcao);
+    });
+}
+
+// Formata a data para o padrão brasileiro
+function formatarDataReserva(data) {
+    if (!data) return "";
+    return data.split("-").reverse().join("/");
+}
+
+// Salva uma nova reserva
+if (formularioNovaReserva) {
+
+    formularioNovaReserva.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const indicePet = selecaoPetReserva.value;
+        const petSelecionado = pets[indicePet];
+
+        if (!petSelecionado) {
+            alert("Selecione um pet.");
+            return;
+        }
+
+        const dataInicio = document.querySelector("#inicio").value;
+        const dataFim = document.querySelector("#fim").value;
+
+        if (dataFim < dataInicio) {
+            alert("A data de término não pode ser anterior à data de início.");
+            return;
+        }
+
+        const proximoId = reservasHotel.length > 0
+            ? Math.max(...reservasHotel.map(reserva => Number(reserva.id))) + 1
+            : 1;
+
+        const novaReserva = {
+            id: proximoId,
+            pet: petSelecionado.nome,
+            proprietario: petSelecionado.proprietario,
+            inicio: dataInicio,
+            fim: dataFim,
+            informacoes: document.querySelector("#informacoes").value,
+            status: "Agendada"
+        };
+
+        reservasHotel.push(novaReserva);
+
+        localStorage.setItem("reservas", JSON.stringify(reservasHotel));
+
+        alert("Reserva cadastrada com sucesso!");
+
+        formularioNovaReserva.reset();
+    });
+}
+
+// Exibe as reservas na tabela
+const tabelaReservasHotel = document.querySelector("#tabela-reservas tbody");
+
+if (tabelaReservasHotel) {
+
+    tabelaReservasHotel.innerHTML = "";
+
+    reservasHotel.forEach(reserva => {
+
+        const linha = document.createElement("tr");
+
+        linha.innerHTML = `
+            <td>${reserva.id}</td>
+            <td>${reserva.pet}</td>
+            <td>${reserva.proprietario}</td>
+            <td>${formatarDataReserva(reserva.inicio)} até ${formatarDataReserva(reserva.fim)}</td>
+            <td>${reserva.status}</td>
+            <td>-</td>
+        `;
+
+        tabelaReservasHotel.appendChild(linha);
+    });
+}
+
+// ==========================================
+// 7. CADASTRAR E LISTAR USUÁRIOS
+// ==========================================
+
+// Recupera os usuários salvos
+let usuariosHotel = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+// Formulário de cadastro
+const formularioNovoUsuario = document.querySelector("#form-novo-usuario");
+
+// Salva um novo usuário
+if (formularioNovoUsuario) {
+
+    formularioNovoUsuario.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const novoUsuario = {
+            nome: document.querySelector("#nome").value,
+            email: document.querySelector("#email").value,
+            telefone: document.querySelector("#telefone").value,
+            funcao: document.querySelector("#funcao").value,
+            status: document.querySelector("#status").value
+        };
+
+        usuariosHotel.push(novoUsuario);
+
+        localStorage.setItem("usuarios", JSON.stringify(usuariosHotel));
+
+        alert("Usuário cadastrado com sucesso!");
+
+        formularioNovoUsuario.reset();
+    });
+}
+
+// Exibe os usuários na tabela
+const tabelaUsuariosHotel = document.querySelector("#tabela-usuarios tbody");
+
+if (tabelaUsuariosHotel) {
+
+    tabelaUsuariosHotel.innerHTML = "";
+
+    usuariosHotel.forEach(usuario => {
+
+        const linha = document.createElement("tr");
+
+        linha.innerHTML = `
+            <td>${usuario.nome}</td>
+            <td>${usuario.email}</td>
+            <td>${usuario.funcao}</td>
+            <td>${usuario.status}</td>
+            <td>-</td>
+        `;
+
+        tabelaUsuariosHotel.appendChild(linha);
+    });
+}
