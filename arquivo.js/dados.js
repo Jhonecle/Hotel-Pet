@@ -408,15 +408,6 @@ if (formularioEditarReserva) {
         // Preenche a lista de pets
         const selecaoPetEdicao = document.querySelector("#pet");
 
-        pets.forEach((pet, indice) => {
-
-            const opcao = document.createElement("option");
-
-            opcao.value = indice;
-            opcao.textContent = pet.nome;
-
-            selecaoPetEdicao.appendChild(opcao);
-        });
 
         // Identifica o pet da reserva
         const indicePetAtual = pets.findIndex(
